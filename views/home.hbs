@@ -1,4 +1,4 @@
-<ul >
+<!-- <ul >
   {{#events}}
     <li>
         <h2>{{ title }}</h2>
@@ -6,4 +6,26 @@
         <p style="color:red;">{{ location }} </p>
     </li>
   {{/events}}
-</ul>
+</ul> -->
+
+
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+<table style="width:100%">
+ <tr>
+    <th style="color:blue;font-size:20px">Title</th>
+    <th style="color:blue;font-size:20px">Description</th>
+    <th style="color:blue;font-size:20px">Location</th>
+  </tr>
+{{#events}}
+  <tr>
+    <th>{{ title }}</th>
+    <th>{{ description }}</th>
+    <th>{{ location }}</th>
+  </tr>
+{{/events}}
+</table>
