@@ -6,58 +6,58 @@
   <title>Team SkyNet Website</title>
   <meta name="HandheldFriendly" content="True" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVnLAui8OeOsai8kLTP2ho92jnedMeON0&libraries=places"></script>
 </head>
+
 <body>
-  <div>
-      <h1 style="text-align:center">Welcome to SkyNet's application</h1>
+
+<div>
+      <h1 style="text-align:center">Welcome to SkyNet</h1>
       <p style="color:red;text-align:center">Check out the latest events!!!</p>
     {{{body}}}
 </div>
+
 <div>
+    <form action="/event" method="post">
+        <fieldset>
+            <legend>Add an event</legend>
+
+            <p>
+            <label>Title</label>
+            <input name="title" 
+                    type="text"
+                    value = "Title Here" />
+            </p>
+
+            <p>
+            <label>Description</label>
+            <input name="description" 
+                    type="text" 
+                    value = "description here" />
+            </p>
+
+            <p>
+            <label for="searchInput">Location</label>
+            <!-- Search input -->
+            <input id="searchInput" type="text" size="50">
+
+            <script>
+                function init() {
+                var input = document.getElementById('searchInput');
+                var autocomplete = new google.maps.places.Autocomplete(input);
+            }
+
+            google.maps.event.addDomListener(window, 'load', init);
+            </script>
+            </p>
+
+            <input type="submit" name="submit" value="submit" />
+        </fieldset>
+    </form>
+</div>
 
 
-<form action="/event" method="post">
-      <fieldset>
-        <legend>Add an event</legend>
-        <p>
-          <label>Title</label>
-          <input name="title" 
-                 type="text"
-                 value = "Title Here" />
-        </p>
-        <p>
-          <label>Description</label>
-          <input name="description" 
-                 type="text" 
-                 value = "description here" />
-        </p>
-        <p>
-          <label>Location</label>
-          <!-- Search input -->
-          <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
-
-          <!-- Google map -->
-          <div id="map"></div>
-
-          <!-- Display geolocation data -->
-          <ul class="geo-data">
-              <li>Full Address: <span id="location"></span></li>
-              <li>Postal Code: <span id="postal_code"></span></li>
-              <li>Country: <span id="country"></span></li>
-              <li>Latitude: <span id="lat"></span></li>
-              <li>Longitude: <span id="lon"></span></li>
-          </ul>
-        </p>
-        <input type="submit" name="submit" value="submit" />
-
-      </fieldset>
-
-
-</form>
-	<iframe width="600" height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJW-T2Wt7Gt4kRKl2I1CJFUsI&key=AIzaSyDrZh2isWXnHI-aDrO9C0-1-uSsFIXykxg" allowfullscreen></iframe>
-
-  </div>
 
 </body>
 </html>
